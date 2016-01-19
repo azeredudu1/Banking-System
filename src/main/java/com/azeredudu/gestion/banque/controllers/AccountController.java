@@ -56,7 +56,7 @@ public class AccountController {
         model.addAttribute( "operations", operations );
         model.addAttribute( "banqueForm", bf );
         model.addAttribute( "code", code );
-
+        model.addAttribute( "code", code );
         return "transactions-details";
     }
 }
