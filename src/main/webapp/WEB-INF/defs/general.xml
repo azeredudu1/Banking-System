@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="common" template="/WEB-INF/layout/classic.jsp">
+		<put-attribute name="title" value="Tiles tutorial homepage"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/layout/footer.jsp"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/layout/header.jsp"></put-attribute>
+		<put-attribute name="menu" value="/WEB-INF/layout/menu.jsp"></put-attribute>
+	</definition>
+	<definition extends="common" name="user-register">
+		<put-attribute name="title" value="User registration"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/user-registration.jsp"></put-attribute>
+
+	</definition>
+	<definition extends="common" name="login-user">
+		<put-attribute name="title" value="User login"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/login.jsp"></put-attribute>
+	</definition>
+
+	<definition extends="common" name="accounts">
+		<put-attribute name="title" value="Your accounts"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/accounts.jsp"></put-attribute>
+		<put-attribute name="current" value="accounts"></put-attribute>
+	</definition>
+	<definition extends="common" name="account-details">
+		<put-attribute name="title" value="Account details"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/account-details.jsp"></put-attribute>
+	</definition>
+	<definition extends="common" name="transactions-details">
+		<put-attribute name="title" value="Transactions details"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/transactions-details.jsp"></put-attribute>
+	</definition>
+	<definition extends="common" name="do-deposit">
+		<put-attribute name="title" value="Deposit details"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/do-deposit.jsp"></put-attribute>
+		<put-attribute name="current" value="deposit"></put-attribute>
+	</definition>
+	<definition extends="common" name="do-withdrawal">
+		<put-attribute name="title" value="Withdrawal details"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/do-withdrawal.jsp"></put-attribute>
+		<put-attribute name="current" value="withdrawal"></put-attribute>
+	</definition>
+	<definition extends="common" name="do-transfer">
+		<put-attribute name="title" value="Transfer details"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/do-transfer.jsp"></put-attribute>
+		<put-attribute name="current" value="transfer"></put-attribute>
+	</definition>
+	<definition extends="common" name="user-register">
+		<put-attribute name="title" value="Register details"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/user-register.jsp"></put-attribute>
+		<put-attribute name="current" value="user-register"></put-attribute>
+	</definition>
+
+	<definition extends="common" name="create-account">
+		<put-attribute name="title" value="Register details"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/do-createAccount.jsp"></put-attribute>
+		<put-attribute name="current" value="create-account"></put-attribute>
+	</definition>
+
+
+
+
+
+
+</tiles-definitions>

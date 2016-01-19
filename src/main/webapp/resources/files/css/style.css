@@ -1,0 +1,43 @@
+@CHARSET "ISO-8859-1";
+
+div {
+	border: 2px dotted gray;
+	padding: 10px;
+	margin: 10px;
+}
+
+.table1 th{
+	border: 2px dotted gray;
+	padding: 10px;
+	margin: 10px;
+	background: rgb(220,220,220);
+}
+.table1 td{
+	border: 2px dotted gray;
+	padding: 10px;
+	margin: 10px;
+	background: white;
+}
+span.current{
+	border: 2px solid gray;
+	padding: 5px;
+	margin: 5px;
+	background: rgb(220,220,220);
+}
+
+span.autrePage{
+	border: 2px solid gray;
+	padding: 5px;
+	margin: 5px;
+	background:white;
+	color: black;
+}
+.error{
+	color: red;
+}
+.leftPane,.rightPane {
+ float: left;
+ margin: 10px;
+ height: 400px;
+}
+
