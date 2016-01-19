@@ -14,6 +14,22 @@
 
 		<form:form modelAttribute="banqueForm" action="createAccount"
 			cssClass="form-horizontal registrationForm col-sm-6 col-sm-offset-3">
+			<div class="row">
+				<div class="thumbnail" style="background-color: #E6E6FA;">
+					<div class="col-sm-offset-1">
+						<h4>
+							<label class="radio-inline"><form:radiobutton
+									checked="checked" cssClass="account" path="typeCompte"
+									value="CA" name="type" id="current" />Current account</label> <label
+								class="radio-inline"><form:radiobutton path="typeCompte"
+									name="type" cssClass="account" value="SA" id="saving" />Saving
+								account</label>
+						</h4>
+					</div>
+
+				</div>
+			</div>
+
 			<div class="form-group ">
 				<label for="description" class="control-label  ">
 					Description</label>
@@ -33,15 +49,31 @@
 				<form:errors path="solde"></form:errors>
 
 			</div>
-			<div class="form-group ">
+			<div class="form-group" id="overdraft">
 				<label for="decouvert" class="control-label ">Overdraft<strong
 					style="color: red"> *</strong>
 				</label>
-
-				<form:input path="decouvert" cssClass="form-control" />
+				<form:select path="decouvert" cssClass="form-control">
+					<form:option value="5000" label="5000"></form:option>
+					<form:option value="10000" label="10000"></form:option>
+					<form:option value="15000" label="15000"></form:option>
+				</form:select>
 				<form:errors path="decouvert"></form:errors>
 
 			</div>
+			<div class="form-group" id="rate">
+				<label for="taux" class="control-label ">Rate<strong
+					style="color: red"> *</strong>
+				</label>
+				<form:select path="taux" cssClass="form-control">
+					<form:option value="10" label="10%"></form:option>
+					<form:option value="15" label="15%"></form:option>
+					<form:option value="20" label="20%"></form:option>
+				</form:select>
+				<form:errors path="taux"></form:errors>
+
+			</div>
+
 
 			<div class="form-group">
 				<label for="currency" class="control-label   ">Currency <strong
@@ -67,7 +99,6 @@
 
 			</div>
 
-
 		</form:form>
 
 
@@ -78,3 +109,23 @@
 
 
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#rate").css("display", "none");
+		$('#current').change(function() {
+			if (this.checked) {
+				$("#overdraft").slideDown("slow").fadeIn("slow");
+				$("#rate").slideUp("slow").fadeOut("slow");
+
+			}
+		});
+		$('#saving').change(function() {
+			if (this.checked) {
+				$("#rate").slideDown("slow").fadeIn("slow");
+				$("#overdraft").slideUp("slow").fadeOut("slow");
+			}
+		});
+
+	});
+</script>
