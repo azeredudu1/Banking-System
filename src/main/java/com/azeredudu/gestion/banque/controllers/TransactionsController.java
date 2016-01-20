@@ -27,7 +27,7 @@ public class TransactionsController {
     public String depositForm( Model model, Principal principal, BanqueForm bf ) {
         String name = principal.getName();
         List<Compte> comptes = service.getComptesByUser( name );
-
+        model.addAttribute( "name", name );
         model.addAttribute( "banqueForm", bf );
         model.addAttribute( "comptes", comptes );
         return "do-deposit";
@@ -61,7 +61,7 @@ public class TransactionsController {
         }
 
         List<Compte> comptes = service.getComptesByUser( name );
-
+        model.addAttribute( "name", name );
         model.addAttribute( "banqueForm", bf );
         model.addAttribute( "comptes", comptes );
         return "do-withdrawal";
@@ -92,7 +92,7 @@ public class TransactionsController {
             model.addAttribute( "message", message );
             return "do-withdrawal";
         }
-
+        model.addAttribute( "name", name );
         model.addAttribute( "banqueForm", bf );
         model.addAttribute( "comptes", comptes );
         redirectAttributes.addFlashAttribute( "message", "Success withdrawal ! " );
@@ -106,6 +106,7 @@ public class TransactionsController {
         List<Compte> comptes = service.getComptesByUser( name );
         model.addAttribute( "banqueForm", bf );
         model.addAttribute( "comptes", comptes );
+        model.addAttribute( "name", name );
         return "do-transfer";
     }
 
@@ -142,6 +143,7 @@ public class TransactionsController {
         redirectAttributes.addFlashAttribute( "message", "Success transfer !" );
         model.addAttribute( "banqueForm", bf );
         model.addAttribute( "comptes", comptes );
+        model.addAttribute( "name", name );
         return "redirect:/accounts";
 
     }

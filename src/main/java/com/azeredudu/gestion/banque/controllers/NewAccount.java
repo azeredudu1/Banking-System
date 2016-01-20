@@ -24,8 +24,9 @@ public class NewAccount {
 
     @RequestMapping
     public String showdoCreateForm( BanqueForm bf, Model model, Principal principal ) {
+        String name = principal.getName();
         model.addAttribute( "banqueForm", bf );
-
+        model.addAttribute( "name", name );
         return "do-createAccount";
     }
 

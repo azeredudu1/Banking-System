@@ -35,18 +35,19 @@ public class AccountController {
     }
 
     @RequestMapping( "/{code}" )
-    public String doGetAccountDetails( Model model, @PathVariable String code ) {
-
+    public String doGetAccountDetails( Model model, @PathVariable String code, Principal principal ) {
+        String name = principal.getName();
         Compte compte = service.consulterCompte( code );
         model.addAttribute( "compte", compte );
+        model.addAttribute( "name", name );
 
         return "account-details";
 
     }
 
     @RequestMapping( "/transactions/{code}" )
-    public String doGetTransactions( Model model, BanqueForm bf, @PathVariable String code ) {
-
+    public String doGetTransactions( Model model, BanqueForm bf, @PathVariable String code, Principal principal ) {
+        String name = principal.getName();
         int pos = bf.getNbreLigne() * bf.getPage();
 
         long nbreOperations = service.getNombreOperations( code );
@@ -56,6 +57,8 @@ public class AccountController {
         model.addAttribute( "operations", operations );
         model.addAttribute( "banqueForm", bf );
         model.addAttribute( "code", code );
+        model.addAttribute( "name", name );
+
         return "transactions-details";
     }
 }
