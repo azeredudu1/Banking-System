@@ -60,10 +60,10 @@
 			</list>
 		</property>
 	</bean>
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-		<property name="viewClass"
-			value="org.springframework.web.servlet.view.tiles3.TilesView" />
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="suffix" value=".jsp"></property>
+		<property name="prefix" value="/WEB-INF/views/"></property>
 	</bean>
 	<mvc:resources location="/resources/files/" mapping="/resources/**" />
 

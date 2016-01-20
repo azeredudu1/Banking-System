@@ -26,7 +26,7 @@ public class NewAccount {
     public String showdoCreateForm( BanqueForm bf, Model model, Principal principal ) {
         model.addAttribute( "banqueForm", bf );
 
-        return "create-account";
+        return "do-createAccount";
     }
 
     @RequestMapping( method = RequestMethod.POST )

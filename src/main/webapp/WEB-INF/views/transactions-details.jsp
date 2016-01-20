@@ -1,19 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link rel="stylesheet" type="text/css"
-	href="../../resources/files/css/bootstrap.min.css"><%@taglib
-	uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<link rel="stylesheet" type="text/css"
+	href="../../resources/files/css/bootstrap.min.css">
 <html>
 
-
+<tiles:insertDefinition name="template1">
+<tiles:putAttribute name="body">
+<div class="panel panel-default ">
 
 <c:choose>
 	<c:when test="${!empty operations }">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 style="color: #800000; text-align: center;" >Transactions Details</h3>
+				<h3 style="color: #800000; text-align: center;">Transactions
+					Details</h3>
 			</div>
 			<div class="panel-body">
 				<table class="table table-hover table-responsive table-striped ">
@@ -99,6 +103,6 @@
 
 
 
-</c:choose>
+</c:choose></div></tiles:putAttribute></tiles:insertDefinition>
 
 </html>

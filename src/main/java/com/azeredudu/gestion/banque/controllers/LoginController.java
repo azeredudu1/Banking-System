@@ -20,12 +20,12 @@ public class LoginController {
             message = "Access denied";
         }
 
-        return new ModelAndView( "login-user", "message", message );
+        return new ModelAndView( "login", "message", message );
     }
 
     @RequestMapping( "/403page" )
     public String get403page() {
-        return "redirect:login-user?denied";
+        return "redirect:login?denied";
     }
 
 }
