@@ -16,6 +16,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.azeredudu.gestion.banque.entities.Compte;
 import com.azeredudu.gestion.banque.entities.SendToEmail;
+import com.azeredudu.gestion.banque.entities.SendToEmail1;
+import com.azeredudu.gestion.banque.entities.SendToEmail2;
 import com.azeredudu.gestion.banque.entities.User;
 import com.azeredudu.gestion.banque.metier.BanqueForm;
 import com.azeredudu.gestion.banque.services.BanqueService;
@@ -48,9 +50,9 @@ public class TransactionsController {
         service.verser( bf.getMontant(),
                 bf.getCodeCpte(), user.getIdUser() );
 
-        new SendToEmail( user, bf.getMontant(), bf.getCodeCpte(), "dollars", String.format(
-                "%s://%s:%d/Banking-System/accounts/transactions/ZQTPL089D2TEV", request.getScheme(),
-                request.getServerName(), request.getServerPort() ) );
+        new SendToEmail( "Deposit report ", user, bf.getMontant(), bf.getCodeCpte(), "dollars", String.format(
+                "%s://%s:%d/Banking-System/accounts/transactions/" + bf.getCodeCpte(), request.getScheme(),
+                request.getServerName(), request.getServerPort() ), "deposit", "in" );
 
         model.addAttribute( "comptes", comptes );
         model.addAttribute( "banque", bf );
@@ -76,7 +78,7 @@ public class TransactionsController {
 
     @RequestMapping( value = "withdrawal" )
     public String withdrawal( Model model, @Valid BanqueForm bf, BindingResult result, Principal principal,
-            RedirectAttributes redirectAttributes ) {
+            RedirectAttributes redirectAttributes, HttpServletRequest request ) {
         String name = principal.getName();
         User user = service.getUSer( name );
         List<Compte> comptes = service.getComptesByUser( name );
@@ -91,6 +93,9 @@ public class TransactionsController {
                 bf.getMontant() ) {
             service.retrait( bf.getMontant(), bf.getCodeCpte(),
                     user.getIdUser() );
+            new SendToEmail( "Withdrawal report ", user, bf.getMontant(), bf.getCodeCpte(), "dollars", String.format(
+                    "%s://%s:%d/Banking-System/accounts/transactions/" + bf.getCodeCpte(), request.getScheme(),
+                    request.getServerName(), request.getServerPort() ), "withdrawal", "from" );
         } else {
 
             String message = "Sorry, your balance is insufficient!";
@@ -118,7 +123,7 @@ public class TransactionsController {
 
     @RequestMapping( value = "/transfer" )
     public String transfer( Model model, Principal principal, @Valid BanqueForm bf, BindingResult result,
-            RedirectAttributes redirectAttributes ) {
+            RedirectAttributes redirectAttributes, HttpServletRequest request ) {
         String name = principal.getName();
         User user = service.getUSer( name );
         List<Compte> comptes = service.getComptesByUser( name );
@@ -135,7 +140,21 @@ public class TransactionsController {
             return "do-transfer";
         }
         if ( solde == bf.getMontant() || solde > bf.getMontant() ) {
+
             service.virement( bf.getMontant(), bf.getCodeCpte(), bf.getCodeCpte2(), user.getIdUser() );
+            new SendToEmail1( "Transfer report", user, bf.getMontant(), bf.getCodeCpte(), bf.getCodeCpte2(), "dollars",
+                    String.format(
+                            "%s://%s:%d/Banking-System/accounts/transactions/" + bf.getCodeCpte(), request.getScheme(),
+                            request.getServerName(), request.getServerPort() ) );
+            Compte accountReceiver = service.consulterCompte( bf.getCodeCpte2() );
+            User userReceiver = accountReceiver.getUser();
+            new SendToEmail2( "Fund received report", userReceiver, bf.getMontant(), bf.getCodeCpte(),
+                    bf.getCodeCpte2(),
+                    "dollars",
+                    String.format(
+                            "%s://%s:%d/Banking-System/accounts/transactions/" + bf.getCodeCpte2(),
+                            request.getScheme(),
+                            request.getServerName(), request.getServerPort() ) );
         }
 
         else {

@@ -22,7 +22,7 @@ public class Retrait extends Operation {
     @Override
     public String toString() {
         // TODO Auto-generated method stub
-        return "withdraw";
+        return "withdrawal";
     }
 
 }
