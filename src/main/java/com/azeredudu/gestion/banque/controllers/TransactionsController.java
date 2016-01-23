@@ -3,6 +3,7 @@ package com.azeredudu.gestion.banque.controllers;
 import java.security.Principal;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.azeredudu.gestion.banque.entities.Compte;
+import com.azeredudu.gestion.banque.entities.SendToEmail;
 import com.azeredudu.gestion.banque.entities.User;
 import com.azeredudu.gestion.banque.metier.BanqueForm;
 import com.azeredudu.gestion.banque.services.BanqueService;
@@ -37,7 +39,7 @@ public class TransactionsController {
     @RequestMapping( value = "/deposit" )
     public String doDeposit( Model
             model, Principal principal, @Valid BanqueForm bf, BindingResult result,
-            RedirectAttributes redirectAttributes ) {
+            RedirectAttributes redirectAttributes, HttpServletRequest request ) {
         String name = principal.getName();
         List<Compte> comptes =
                 service.getComptesByUser( name );
@@ -45,6 +47,10 @@ public class TransactionsController {
 
         service.verser( bf.getMontant(),
                 bf.getCodeCpte(), user.getIdUser() );
+
+        new SendToEmail( user, bf.getMontant(), bf.getCodeCpte(), "dollars", String.format(
+                "%s://%s:%d/Banking-System/accounts/transactions/ZQTPL089D2TEV", request.getScheme(),
+                request.getServerName(), request.getServerPort() ) );
 
         model.addAttribute( "comptes", comptes );
         model.addAttribute( "banque", bf );
