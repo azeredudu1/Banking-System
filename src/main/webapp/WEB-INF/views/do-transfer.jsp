@@ -18,7 +18,7 @@
 	<div class="panel-body">
 		<c:if test="${!empty message }">
 			<div class="alert alert-danger" id="removeMe">
-				<h4 align="center">${message }<a class="pull-right"
+				<h4 align="center"><span class="glyphicon glyphicon-alert"></span> ${message }<a class="pull-right"
 						onclick="removeDiv('removeMe');" href="#">&times;</a>
 				</h4>
 
@@ -26,7 +26,7 @@
 		</c:if>
 		<c:if test="${!empty exception }">
 			<div class="alert alert-danger" id="removeMe">
-				<h4 align="center">${exception }<a class="pull-right"
+				<h4 align="center"><span class="glyphicon glyphicon-alert"></span> ${exception }<a class="pull-right"
 						onclick="removeDiv('removeMe');" href="#">&times;</a>
 				</h4>
 

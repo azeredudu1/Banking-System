@@ -88,7 +88,14 @@ public class TransactionsController {
          */
 
         Compte compte = service.consulterCompte( bf.getCodeCpte() );
+
         double solde = compte.getSolde();
+        if ( compte.toString().equals( "Savings" ) ) {
+            String message = "Sorry, this is a savings account, you cannot withdraw!";
+            model.addAttribute( "comptes", comptes );
+            model.addAttribute( "message", message );
+            return "do-withdrawal";
+        }
         if ( solde == bf.getMontant() || solde >
                 bf.getMontant() ) {
             service.retrait( bf.getMontant(), bf.getCodeCpte(),
@@ -96,7 +103,8 @@ public class TransactionsController {
             new SendToEmail( "Withdrawal report ", user, bf.getMontant(), bf.getCodeCpte(), "dollars", String.format(
                     "%s://%s:%d/Banking-System/accounts/transactions/" + bf.getCodeCpte(), request.getScheme(),
                     request.getServerName(), request.getServerPort() ), "withdrawal", "from" );
-        } else {
+        }
+        else {
 
             String message = "Sorry, your balance is insufficient!";
             model.addAttribute( "comptes", comptes );
@@ -134,9 +142,17 @@ public class TransactionsController {
         Compte compte = service.consulterCompte( bf.getCodeCpte() );
         double solde = compte.getSolde();
         Compte compte2 = service.consulterCompte( bf.getCodeCpte2() );
+
         if ( compte2 == null ) {
             model.addAttribute( "exception", "No account found with the account number : " + bf.getCodeCpte2() );
             model.addAttribute( "comptes", comptes );
+            return "do-transfer";
+        }
+
+        if ( compte.toString().equals( "Savings" ) ) {
+            String message = "sorry, you cannot transfer funds from a savings account !";
+            model.addAttribute( "comptes", comptes );
+            model.addAttribute( "message", message );
             return "do-transfer";
         }
         if ( solde == bf.getMontant() || solde > bf.getMontant() ) {
