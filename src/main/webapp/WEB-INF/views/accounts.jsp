@@ -9,7 +9,6 @@
 	href="../../resources/files/css/bootstrap.min.css">
 <html>
 <tiles:insertDefinition name="template1">
-
 	<tiles:putAttribute name="body">
 		<div class="panel panel-default ">
 			<c:if test="${!empty message }">
@@ -21,8 +20,6 @@
 					</div>
 				</c:if>
 			<div class="panel-header">
-				
-
 				<datatables:table id="compte" data="${comptes }" row="compte"
 					pageable="true" pagingType="listbox"
 					cssClass="table table-striped table-hover" lengthChange="true"
