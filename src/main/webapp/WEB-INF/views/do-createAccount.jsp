@@ -16,7 +16,7 @@
 	<div class="panel-body">
 
 		<form:form modelAttribute="banqueForm" action="createAccount"
-			cssClass="form-horizontal registrationForm col-sm-6 col-sm-offset-3">
+			cssClass="form-horizontal registrationForm col-sm-6 col-sm-offset-3 ">
 			<div class="row">
 				<div class="thumbnail" style="background-color: #E6E6FA;">
 					<div class="col-sm-offset-1">
@@ -35,10 +35,11 @@
 
 			<div class="form-group ">
 				<label for="description" class="control-label  ">
-					Description</label>
+					Description <strong
+					style="color: red">* </strong></label>
 
 				<form:input path="description" cssClass="form-control"
-					placeHolder="account description" />
+					placeHolder="Account description" />
 				<form:errors path="description"></form:errors>
 
 			</div>
@@ -48,7 +49,7 @@
 					style="color: red">* </strong>
 				</label>
 
-				<form:input path="solde" cssClass="form-control" />
+				<form:input path="solde" cssClass="form-control"  placeHolder="Balance"/>
 				<form:errors path="solde"></form:errors>
 
 			</div>
@@ -129,6 +130,35 @@
 				$("#overdraft").slideUp("slow").fadeOut("slow");
 			}
 		});
+		$('.registrationForm')
+		.validate(
+				{
+					rules : {
+
+						description : {
+							required : true
+						},
+						solde : {
+							required : true
+						}
+					},
+					highlight : function(element) {
+						$(element).closest('.form-group').removeClass(
+								'has-success').addClass('has-error');
+
+					},
+					unhighlight : function(element) {
+						$(element).closest('.form-group').removeClass(
+								'has-error').addClass('has-success');
+
+					},
+					messages : {
+						description : "Must enter a description!",
+						solde : "Initial blance is required!",
+						
+					}
+				});
+
 
 	});
 </script>

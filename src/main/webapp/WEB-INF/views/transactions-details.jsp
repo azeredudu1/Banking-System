@@ -21,7 +21,7 @@
 					Details</h3>
 			</div>
 			<div class="panel-body">
-				<jsp:include page="../views/test.jsp"></jsp:include>
+				<jsp:include page="../views/transactions-datatables.jsp"></jsp:include>
 				<div class="panel-footer">
 
 					<p>

@@ -45,7 +45,7 @@ public class BanqueForm {
     private String codeCpte2;
     private String typeCompte;
 
-    private double solde;
+    private Double solde;
     private double decouvert;
     private double taux;
     private String currency;
@@ -99,11 +99,11 @@ public class BanqueForm {
         this.typeCompte = typeCompte;
     }
 
-    public double getSolde() {
+    public Double getSolde() {
         return solde;
     }
 
-    public void setSolde( double solde ) {
+    public void setSolde( Double solde ) {
         this.solde = solde;
     }
 
