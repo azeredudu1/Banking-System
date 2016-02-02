@@ -104,8 +104,7 @@
 		pre-post-annotations="enabled"></security:global-method-security>
 
 	<mvc:resources location="/resources/files/" mapping="/files/**" />
-
-
+<mvc:resources mapping="/dandelion/**" location="classpath:/META-INF/resources/dandelion/" />
 
 
 </beans>

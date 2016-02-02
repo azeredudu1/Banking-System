@@ -23,11 +23,13 @@ public class AccountController {
     @RequestMapping
     public String doGetAccounts( Model model, Principal principal, BanqueForm bf ) {
         String name = principal.getName();
-        int pos = bf.getNbreLigne() * bf.getPage();
-
-        long nbreComptes = service.getNombreComptes( name );
-        bf.setNombrePages( (int) ( nbreComptes / bf.getNbreLigne() ) + 1 );
-        List<Compte> comptes = service.getComptesByUser( name, pos, bf.getNbreLigne() );
+        /*
+         * int pos = bf.getNbreLigne() * bf.getPage();
+         * 
+         * long nbreComptes = service.getNombreComptes( name );
+         * bf.setNombrePages( (int) ( nbreComptes / bf.getNbreLigne() ) + 1 );
+         */
+        List<Compte> comptes = service.getComptesByUser( name );
         model.addAttribute( "comptes", comptes );
         model.addAttribute( "name", name );
 
@@ -48,12 +50,7 @@ public class AccountController {
     @RequestMapping( "/transactions/{code}" )
     public String doGetTransactions( Model model, BanqueForm bf, @PathVariable String code, Principal principal ) {
         String name = principal.getName();
-        int pos = bf.getNbreLigne() * bf.getPage();
-
-        long nbreOperations = service.getNombreOperations( code );
-        System.out.println( "Nombre operations " + nbreOperations );
-        bf.setNombrePages( (int) ( nbreOperations / bf.getNbreLigne() ) + 1 );
-        List<Operation> operations = service.ConsulterOperations( code, pos, bf.getNbreLigne() );
+        List<Operation> operations = service.ConsulterOperations( code );
         model.addAttribute( "operations", operations );
         model.addAttribute( "banqueForm", bf );
         model.addAttribute( "code", code );

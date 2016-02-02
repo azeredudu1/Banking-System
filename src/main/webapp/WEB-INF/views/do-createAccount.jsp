@@ -25,7 +25,7 @@
 									checked="checked" cssClass="account" path="typeCompte"
 									value="CA" name="type" id="current" />Current account</label> <label
 								class="radio-inline"><form:radiobutton path="typeCompte"
-									name="type" cssClass="account" value="SA" id="saving" />Saving
+									name="type" cssClass="account" value="SA" id="saving" />Savings
 								account</label>
 						</h4>
 					</div>

@@ -124,6 +124,11 @@
 			<version>2.2</version>
 		</dependency>
 		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
 			<version>4.1.4.RELEASE</version>
@@ -143,6 +148,7 @@
 			<artifactId>spring-context</artifactId>
 			<version>4.0.5.RELEASE</version>
 		</dependency>
+
 		<dependency>
 
 			<groupId>org.springframework.security</groupId>
@@ -183,6 +189,32 @@
 			<artifactId>lombok</artifactId>
 			<version>1.16.6</version>
 		</dependency>
+		<dependency>
+			<groupId>com.github.dandelion</groupId>
+			<artifactId>dandelion-jsp</artifactId>
+			<version>${dandelion.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.dandelion</groupId>
+			<artifactId>datatables-jsp</artifactId>
+			<version>${dandelion.datatables.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.dandelion</groupId>
+			<artifactId>datatables-export-itext</artifactId>
+			<version>${dandelion.datatables.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
 	</dependencies>
 
 
@@ -190,4 +222,5 @@
 	<build>
 		<finalName>GestionBanque</finalName>
 	</build>
+
 </project>

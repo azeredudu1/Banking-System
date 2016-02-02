@@ -120,14 +120,15 @@ public class BanqueServiceImpl implements BanqueService {
         return dao.getRole( id );
     }
 
-    public List<Compte> getComptesByUser( String userName, int position, int nbreComptes ) {
-        // TODO Auto-generated method stub
-        return dao.getComptesByUser( userName, position, nbreComptes );
-    }
+    /*
+     * public List<Compte> getComptesByUser( String userName, int position, int
+     * nbreComptes ) { // TODO Auto-generated method stub return
+     * dao.getComptesByUser( userName, position, nbreComptes ); }
+     */
 
-    public List<Operation> ConsulterOperations( String codeCpte, int position, int nbreOperations ) {
+    public List<Operation> ConsulterOperations( String codeCpte ) {
         // TODO Auto-generated method stub
-        return dao.ConsulterOperations( codeCpte, position, nbreOperations );
+        return dao.ConsulterOperations( codeCpte );
     }
 
     public Long getNombreComptes( String username ) {

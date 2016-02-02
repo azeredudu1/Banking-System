@@ -16,7 +16,7 @@ public class Test1 {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 new String[] { "spring-config.xml" } );
         BanqueService service = (BanqueService) context.getBean( "service" );
-        List<Operation> list = service.ConsulterOperations( "6SUFVFIDTN62G", 0, 18 );
+        List<Operation> list = service.ConsulterOperations( "6SUFVFIDTN62G" );
         for ( Operation operation : list ) {
             System.out.println( "***************" );
             System.out.println( "Type Op: " + operation );

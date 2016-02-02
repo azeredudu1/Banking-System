@@ -85,15 +85,16 @@ public class BanqueDaoImpl implements BanqueDao {
         return user;
     }
 
-    public List<Compte> getComptesByUser( String userName, int position, int nbreComptes ) {
-        // TODO Auto-generated method stub
-        Query query = em.createQuery( "select c from Compte c where c.user.userName=:x order by c.dateCreation DESC" );
-        query.setParameter( "x", userName );
-        query.setFirstResult( position );
-        query.setMaxResults( nbreComptes );
-
-        return query.getResultList();
-    }
+    /*
+     * public List<Compte> getComptesByUser( String userName, int position, int
+     * nbreComptes ) { // TODO Auto-generated method stub Query query =
+     * em.createQuery(
+     * "select c from Compte c where c.user.userName=:x order by c.dateCreation DESC"
+     * ); query.setParameter( "x", userName ); query.setFirstResult( position );
+     * query.setMaxResults( nbreComptes );
+     * 
+     * return query.getResultList(); }
+     */
 
     public List<Compte> getComptesByUser( String userName ) {
         // TODO Auto-generated method stub
@@ -131,13 +132,11 @@ public class BanqueDaoImpl implements BanqueDao {
         return query.getResultList();
     }
 
-    public List<Operation> ConsulterOperations( String codeCpte, int position, int nbreOperations ) {
+    public List<Operation> ConsulterOperations( String codeCpte ) {
         // TODO Auto-generated method stub
         Query query = em
                 .createQuery( "select o from Operation o where o.compte.codeCompte=:x order by o.dateOperation desc" );
         query.setParameter( "x", codeCpte );
-        query.setFirstResult( position );
-        query.setMaxResults( nbreOperations );
 
         return query.getResultList();
     }

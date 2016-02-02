@@ -31,8 +31,6 @@ public interface BanqueService {
 
     User getUSer( String username );
 
-    List<Compte> getComptesByUser( String userName, int position, int nbreComptes );
-
     List<Compte> getComptesByUser( String userName );
 
     List<User> getUsers();
@@ -43,7 +41,7 @@ public interface BanqueService {
 
     List<User> consulterUsers( String mc );
 
-    List<Operation> ConsulterOperations( String codeCpte, int position, int nbreOperations );
+    List<Operation> ConsulterOperations( String codeCpte );
 
     Long getNombreOperations( String codeCpte );
 

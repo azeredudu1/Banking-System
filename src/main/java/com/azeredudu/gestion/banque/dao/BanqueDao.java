@@ -27,9 +27,9 @@ public interface BanqueDao {
 
     User getUSer( String username );
 
-    List<Compte> getComptesByUser( String userName, int position, int nbreComptes );
-
     List<Compte> getComptesByUser( String userName );
+
+    /* List<Compte> getComptesByUser( String userName ); */
 
     List<User> getUsers();
 
@@ -39,7 +39,7 @@ public interface BanqueDao {
 
     List<User> consulterUsers( String mc );
 
-    List<Operation> ConsulterOperations( String codeCpte, int position, int nbreOperations );
+    List<Operation> ConsulterOperations( String codeCpte );
 
     Long getNombreOperations( String codeCpte );
 
