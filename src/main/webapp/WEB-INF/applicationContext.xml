@@ -77,6 +77,22 @@
 			error-page="/403page" />
 		<security:intercept-url pattern="/accounts**"
 			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/accounts/{code}**"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/accounts/transactions/{code}**"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/depositForm**"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/deposit**"
+			access="hasRole('ROLE_USER')" />
+						<security:intercept-url pattern="/withdrawalForm**"
+			access="hasRole('ROLE_USER')" />
+				<security:intercept-url pattern="/withdrawal**"
+			access="hasRole('ROLE_USER')" />
+			<security:intercept-url pattern="/transferForm**"
+			access="hasRole('ROLE_USER')" />
+			<security:intercept-url pattern="/transfer**"
+			access="hasRole('ROLE_USER')" />
 		<security:intercept-url pattern="/backOffice**"
 			access="hasRole('ROLE_EMPLOYEE')" />
 

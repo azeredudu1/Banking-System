@@ -47,14 +47,14 @@
 <html>
 <tiles:insertDefinition name="template2">
 	<tiles:putAttribute name="body">
-		<div class="container">
+		<div class="container" style="padding-bottom: 20px;">
 			<div class="panel panel-default" style="height: 450px;">
 				<div class="panel-heading">
-					<h3 class="form-signin-heading" style="color: #800000">
+					<h3 class="form-signin-heading" style="color: #800000;" >
 						<center>Please sign in</center>
 					</h3>
 				</div>
-				<div class="panel-body" style="padding-bottom: 82px;">
+				<div class="panel-body" style="height: 300px;">
 					<h4 colspan="2" style="color: red">
 						<center>${message}</center>
 					</h4>
@@ -80,9 +80,12 @@
 				</div>
 				<div class="panel panel-footer">
 					<h4>
-						<a href='<spring:url value="/welcome"></spring:url>'>Change User</a>
+						<a href='<spring:url value="/welcome"></spring:url>'>Change
+							User</a>
 					</h4>
-
+					<marquee>
+						<h4><i>Banking System Management</i></h4>
+					</marquee>
 				</div>
 
 			</div>

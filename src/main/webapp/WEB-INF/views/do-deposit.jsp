@@ -21,7 +21,7 @@
 			modelAttribute="banqueForm" action="deposit" method="post">
 			<div class="form-group col-sm-12">
 				<label for="codeCompte"
-					class="col-sm-3 col-sm-offset-1 control-label">From Compte
+					class="col-sm-3 col-sm-offset-1 control-label">From Account
 					<strong style="color: red">* </strong>
 				</label>
 				<div class="col-sm-6">
