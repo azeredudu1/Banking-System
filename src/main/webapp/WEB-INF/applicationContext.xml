@@ -70,20 +70,20 @@
 	<security:http auto-config="true" use-expressions="true">
 		<security:form-login login-page="/login"
 			authentication-failure-url="/login?authfailed" default-target-url="/accounts" />
-		<security:logout logout-success-url="/login?logout"
+
+		<security:logout logout-success-url="/welcome?logout"
 			logout-url="/logout" />
 		<security:access-denied-handler
 			error-page="/403page" />
-		<security:intercept-url pattern="/banque**"
-			access="hasRole('ROLE_ADMIN')" />
-		<!-- <security:intercept-url pattern="/adminProd/**" access="ROLE_ADMIN_PROD" 
-			/> -->
 		<security:intercept-url pattern="/accounts**"
-			access="hasRole('ROLE_ADMIN')" />
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/backOffice**"
+			access="hasRole('ROLE_EMPLOYEE')" />
 
 	</security:http>
 	<security:authentication-manager>
 		<security:authentication-provider>
+
 			<security:jdbc-user-service
 				data-source-ref="dataSource"
 
@@ -98,13 +98,23 @@
 			<security:password-encoder hash="bcrypt">
 			</security:password-encoder>
 		</security:authentication-provider>
+		<security:authentication-provider>
+			<security:jdbc-user-service
+				data-source-ref="dataSource"
+				users-by-username-query="select username, password,actived from employee where username=?"
+				authorities-by-username-query="select employee.username, role_employee.roleName from employee
+				 join employee_role on employee.code_Employee = employee_role.employee_id 
+				 join role_employee on employee_role.role_id = role_employee.idRole  where employee.username = ?" />
+
+		</security:authentication-provider>
 
 	</security:authentication-manager>
 	<security:global-method-security
 		pre-post-annotations="enabled"></security:global-method-security>
 
 	<mvc:resources location="/resources/files/" mapping="/files/**" />
-<mvc:resources mapping="/dandelion/**" location="classpath:/META-INF/resources/dandelion/" />
+	<mvc:resources mapping="/dandelion/**"
+		location="classpath:/META-INF/resources/dandelion/" />
 
 
 </beans>

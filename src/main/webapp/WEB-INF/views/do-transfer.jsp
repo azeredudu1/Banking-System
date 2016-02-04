@@ -76,7 +76,7 @@
 
 			<div class="form-group col-sm-12">
 				<div class="col-sm-offset-4 col-sm-8">
-					<button type="submit" class="btn btn-default" name="action">ok</button>
+					<button type="submit" class="btn btn-success" name="action">ok</button>
 				</div>
 			</div>
 		</form:form>

@@ -99,7 +99,7 @@
 
 			<div class="form-group ">
 
-				<button type="submit" class="btn btn-default" name="action">ok</button>
+				<button type="submit" class="btn btn-success" name="action">Create</button>
 
 			</div>
 

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <style>
 .form-signin {
@@ -53,7 +54,7 @@
 						<center>Please sign in</center>
 					</h3>
 				</div>
-				<div class="panel-body">
+				<div class="panel-body" style="padding-bottom: 82px;">
 					<h4 colspan="2" style="color: red">
 						<center>${message}</center>
 					</h4>
@@ -75,6 +76,12 @@
 						<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
 							in</button>
 					</form>
+
+				</div>
+				<div class="panel panel-footer">
+					<h4>
+						<a href='<spring:url value="/welcome"></spring:url>'>Change User</a>
+					</h4>
 
 				</div>
 

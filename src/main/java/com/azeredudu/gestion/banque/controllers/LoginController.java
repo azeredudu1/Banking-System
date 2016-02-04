@@ -8,14 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
     @RequestMapping( "/login" )
-    public ModelAndView getLoginForm( @RequestParam( required = false ) String authfailed, String logout, String denied ) {
+    public ModelAndView getLoginForm( @RequestParam( required = false ) String authfailed, String denied ) {
         String message = "";
         if ( authfailed != null ) {
             message = "Username or password incorrect, try again!";
         }
-        else if ( logout != null ) {
-            message = "Successfully logged out!";
-        }
+
         else if ( denied != null ) {
             message = "Access denied";
         }
