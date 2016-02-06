@@ -146,4 +146,10 @@ public class BanqueServiceImpl implements BanqueService {
         return dao.getUSer( username );
     }
 
+    public void deleteUSer( Long id ) {
+        // TODO Auto-generated method stub
+        dao.deleteUSer( id );
+
+    }
+
 }

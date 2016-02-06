@@ -1,6 +1,7 @@
 package com.azeredudu.gestion.banque.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -28,9 +29,9 @@ public class BanqueDaoImpl implements BanqueDao {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         user.setUserPassword( encoder.encode( user.getUserPassword() ) );
         List<Role> roles = new ArrayList<Role>();
-        roles.add( getRole( 1L ) );
-        roles.add( getRole( 2L ) );
 
+        roles.add( getRole( 2L ) );
+        user.setDateCreation( new Date() );
         user.setRoles( roles );
         em.persist( user );
         return user;
@@ -198,6 +199,13 @@ public class BanqueDaoImpl implements BanqueDao {
         Query query = em.createQuery( "select u from User u where u.userName like:x" );
         query.setParameter( "x", "%" + username + "%" );
         return (User) query.getSingleResult();
+    }
+
+    public void deleteUSer( Long id ) {
+        // TODO Auto-generated method stub
+        User user = em.find( User.class, id );
+        em.remove( user );
+
     }
 
 }

@@ -49,4 +49,6 @@ public interface BanqueDao {
 
     Role getRole( Long id );
 
+    void deleteUSer( Long id );
+
 }

@@ -51,4 +51,6 @@ public interface BanqueService {
 
     Long getNombreComptes( String username );
 
+    void deleteUSer( Long id );
+
 }

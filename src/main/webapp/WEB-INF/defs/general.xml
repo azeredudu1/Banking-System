@@ -8,11 +8,6 @@
 		<put-attribute name="header" value="/WEB-INF/views/template/header.jsp"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/template/body.jsp"></put-attribute>
 		<put-attribute name="menu" value="/WEB-INF/views/template/menu.jsp"></put-attribute>
-		<put-attribute name="current" value="accounts"></put-attribute>
-		<put-attribute name="current" value="new"></put-attribute>
-		<put-attribute name="current" value="transfer"></put-attribute>
-		<put-attribute name="current" value="deposit"></put-attribute>
-		<put-attribute name="current" value="withdrawal"></put-attribute>
 		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp"></put-attribute>
 	</definition>
 	<definition template="/WEB-INF/views/template2/template.jsp"
@@ -23,7 +18,13 @@
 		<put-attribute name="footer"
 			value="/WEB-INF/views/template2/footer.jsp"></put-attribute>
 	</definition>
-
+	<definition name="employee" template="/WEB-INF/views/template3/template.jsp">
+		<put-attribute name="header"
+			value="/WEB-INF/views/template3/header.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/template3/body.jsp"></put-attribute>
+		<put-attribute name="footer"
+			value="/WEB-INF/views/template3/footer.jsp"></put-attribute>
+	</definition>
 
 
 

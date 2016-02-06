@@ -4,9 +4,7 @@ import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.azeredudu.gestion.banque.entities.Compte;
 import com.azeredudu.gestion.banque.entities.Operation;
-import com.azeredudu.gestion.banque.entities.User;
 import com.azeredudu.gestion.banque.services.BanqueService;
 
 public class Test1 {
@@ -22,17 +20,16 @@ public class Test1 {
             System.out.println( "Type Op: " + operation );
             System.out.println( "montant" + operation.getMontant() );
         }
-        User user = service.getUSer( "azereone" );
-        System.out.println( user.getFirstName() + "+++++" + user.getLastName() );
-
-        Compte compte = service.consulterCompte( "YF5UPIP53TTZ3" );
-        double solde = compte.getSolde();
-        double montant = 47000;
-        if ( solde == montant || solde > montant ) {
-            service.retrait( montant, "YF5UPIP53TTZ3", 7L );
-        } else {
-            System.out.println( "Insufficient balance" );
-        }
-
+        /*
+         * User user = service.getUSer( "azereone" ); System.out.println(
+         * user.getFirstName() + "+++++" + user.getLastName() );
+         * 
+         * Compte compte = service.consulterCompte( "YF5UPIP53TTZ3" ); double
+         * solde = compte.getSolde(); double montant = 47000; if ( solde ==
+         * montant || solde > montant ) { service.retrait( montant,
+         * "YF5UPIP53TTZ3", 7L ); } else { System.out.println(
+         * "Insufficient balance" ); }
+         */
+        service.deleteUSer( 13L );
     }
 }

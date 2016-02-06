@@ -56,7 +56,7 @@
 				</div>
 				<div class="panel-body" style="height: 300px;">
 					<h4 colspan="2" style="color: red">
-						<center>${message}</center>
+						<i><center>${message}</center></i>
 					</h4>
 					<form class="form-signin" action="j_spring_security_check"
 						method="post">

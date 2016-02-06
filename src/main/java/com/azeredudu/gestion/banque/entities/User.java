@@ -2,10 +2,12 @@ package com.azeredudu.gestion.banque.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,6 +19,7 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table( name = "users" )
@@ -38,12 +41,16 @@ public class User implements Serializable {
     private String             address;
     @Email( message = "Email format Incorrect" )
     private String             email;
-    @ManyToMany( cascade = CascadeType.REMOVE )
+
+    @Column( name = "date_creation" )
+    @DateTimeFormat( pattern = "dd/MM/yyyy HH:mm:ss" )
+    private Date               dateCreation;
+    @ManyToMany( fetch = FetchType.EAGER )
     @JoinTable( name = "user_role", joinColumns = @JoinColumn( name = "users_id" ), inverseJoinColumns = @JoinColumn( name = "roles_id" ) )
     private Collection<Role>   roles;
-    @OneToMany( mappedBy = "user", cascade = CascadeType.REMOVE )
+    @OneToMany( mappedBy = "user", cascade = CascadeType.ALL )
     private Collection<Compte> comptes;
-    @ManyToMany
+    @ManyToMany( cascade = CascadeType.ALL )
     @JoinTable( name = "USER_GROUPE", joinColumns =
             @JoinColumn( name = "CODE_US" ), inverseJoinColumns =
             @JoinColumn( name = "CODE_GR" )
@@ -187,6 +194,14 @@ public class User implements Serializable {
 
     public void setGroupes( Collection<Groupe> groupes ) {
         this.groupes = groupes;
+    }
+
+    public Date getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation( Date dateCreation ) {
+        this.dateCreation = dateCreation;
     }
 
 }
