@@ -24,8 +24,9 @@ public class BanqueDaoImpl implements BanqueDao {
 
     public User addUser( User user ) {
         // TODO Auto-generated method stub
-        user.setActived( true );
-
+        /*
+         * user.setActived( true );
+         */
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         user.setUserPassword( encoder.encode( user.getUserPassword() ) );
         List<Role> roles = new ArrayList<Role>();
@@ -85,17 +86,6 @@ public class BanqueDaoImpl implements BanqueDao {
 
         return user;
     }
-
-    /*
-     * public List<Compte> getComptesByUser( String userName, int position, int
-     * nbreComptes ) { // TODO Auto-generated method stub Query query =
-     * em.createQuery(
-     * "select c from Compte c where c.user.userName=:x order by c.dateCreation DESC"
-     * ); query.setParameter( "x", userName ); query.setFirstResult( position );
-     * query.setMaxResults( nbreComptes );
-     * 
-     * return query.getResultList(); }
-     */
 
     public List<Compte> getComptesByUser( String userName ) {
         // TODO Auto-generated method stub
@@ -208,4 +198,22 @@ public class BanqueDaoImpl implements BanqueDao {
 
     }
 
+    public void UpdateUser( Long id, String firstName, String lastName, String userName, String email,
+            boolean actived, String address, String userPassword ) {
+        // TODO Auto-generated method stub
+        User user = em.find( User.class, id );
+        user.setUserName( userName );
+        user.setFirstName( firstName );
+        user.setLastName( lastName );
+        user.setActived( actived );
+        user.setEmail( email );
+        user.setUserPassword( userPassword );
+        user.setAddress( address );
+
+    }
+
+    public void updateUSer( User user ) {
+        em.merge( user );
+
+    }
 }

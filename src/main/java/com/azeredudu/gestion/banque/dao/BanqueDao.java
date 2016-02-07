@@ -51,4 +51,8 @@ public interface BanqueDao {
 
     void deleteUSer( Long id );
 
+    void UpdateUser( Long id, String firstName, String lastName, String userName, String email,
+            boolean actived, String address, String userPassword );
+
+    void updateUSer( User user );
 }

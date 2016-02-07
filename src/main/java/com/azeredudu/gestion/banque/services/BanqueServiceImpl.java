@@ -152,4 +152,16 @@ public class BanqueServiceImpl implements BanqueService {
 
     }
 
+    public void UpdateUser( Long id, String firstName, String lastName, String userName, String email,
+            boolean actived, String address, String userPassword ) {
+        // TODO Auto-generated method stub
+        dao.UpdateUser( id, firstName, lastName, userName, email, actived, address, userPassword );
+
+    }
+
+    public void updateUSer( User user ) {
+        // TODO Auto-generated method stub
+        dao.updateUSer( user );
+
+    }
 }
