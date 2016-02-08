@@ -93,7 +93,13 @@
 			access="hasRole('ROLE_USER')" />
 			<security:intercept-url pattern="/transfer**"
 			access="hasRole('ROLE_USER')" />
-		<security:intercept-url pattern="/backOffice**"
+			<security:intercept-url pattern="/users**"
+			access="hasRole('ROLE_EMPLOYEE')" />
+			<security:intercept-url pattern="/new_user**"
+			access="hasRole('ROLE_EMPLOYEE')" />
+			<security:intercept-url pattern="/new_account**"
+			access="hasRole('ROLE_EMPLOYEE')" />
+			<security:intercept-url pattern="/all_accounts**"
 			access="hasRole('ROLE_EMPLOYEE')" />
 
 	</security:http>

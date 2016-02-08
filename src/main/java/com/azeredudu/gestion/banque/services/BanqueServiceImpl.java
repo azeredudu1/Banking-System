@@ -164,4 +164,9 @@ public class BanqueServiceImpl implements BanqueService {
         dao.updateUSer( user );
 
     }
+
+    public List<Compte> listComptes() {
+        // TODO Auto-generated method stub
+        return dao.listComptes();
+    }
 }

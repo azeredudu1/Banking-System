@@ -57,4 +57,6 @@ public interface BanqueService {
             boolean actived, String address, String userPassword );
 
     void updateUSer( User user );
+
+    List<Compte> listComptes();
 }

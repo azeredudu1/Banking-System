@@ -216,4 +216,10 @@ public class BanqueDaoImpl implements BanqueDao {
         em.merge( user );
 
     }
+
+    public List<Compte> listComptes() {
+        // TODO Auto-generated method stub
+        Query query = em.createQuery( "SELECT c FROM  Compte c" );
+        return query.getResultList();
+    }
 }

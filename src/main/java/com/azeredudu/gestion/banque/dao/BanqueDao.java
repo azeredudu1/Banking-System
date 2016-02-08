@@ -29,7 +29,7 @@ public interface BanqueDao {
 
     List<Compte> getComptesByUser( String userName );
 
-    /* List<Compte> getComptesByUser( String userName ); */
+    List<Compte> listComptes();
 
     List<User> getUsers();
 
