@@ -33,6 +33,8 @@ public interface BanqueService {
 
     List<Compte> getComptesByUser( String userName );
 
+    List<Compte> getComptesByUser( Long id );
+
     List<User> getUsers();
 
     List<Groupe> getGroupes();

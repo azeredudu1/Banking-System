@@ -12,7 +12,7 @@
 	<tiles:putAttribute name="body">
 		<div class="panel panel-default ">
 			<c:if test="${!empty message }">
-					<div class="alert alert-success" id="removeMe">
+					<div class="alert alert-success col-sm-offset-2 col-sm-8" id="removeMe" style="margin-bottom: 20px;">
 						<h4 align="center">${message }<a href="#" class="pull-right"
 								onclick="removeDiv('removeMe');">&times;</a>
 						</h4>
@@ -22,9 +22,9 @@
 			<div class="panel-header">
 				<datatables:table id="compte" data="${comptes }" row="compte"
 					pageable="true" pagingType="listbox"
-					cssClass="table table-striped table-hover" lengthChange="true"
-					info="true" themeOption="redmond" theme="jqueryui" sortable="true">
-					<datatables:column title="" sortable="false">
+					cssClass="table table-striped table-hover " lengthChange="true"
+					info="true" themeOption="redmond" theme="jqueryui" sortable="true" lengthMenu="5,10,15,20,50" >
+					<datatables:column title="" sortable="false" >
 						<spring:url value="/accounts/${compte.codeCompte}" var="detailUrl"></spring:url>
 						<a style="color: #800000" href="${detailUrl }">Details</a>
 					</datatables:column>

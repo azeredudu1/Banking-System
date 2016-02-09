@@ -169,4 +169,9 @@ public class BanqueServiceImpl implements BanqueService {
         // TODO Auto-generated method stub
         return dao.listComptes();
     }
+
+    public List<Compte> getComptesByUser( Long id ) {
+        // TODO Auto-generated method stub
+        return dao.getComptesByUser( id );
+    }
 }

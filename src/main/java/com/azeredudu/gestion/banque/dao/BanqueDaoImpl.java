@@ -222,4 +222,14 @@ public class BanqueDaoImpl implements BanqueDao {
         Query query = em.createQuery( "SELECT c FROM  Compte c" );
         return query.getResultList();
     }
+
+    public List<Compte> getComptesByUser( Long id ) {
+        // TODO Auto-generated method stub
+
+        Query query = em.createQuery( "select c from Compte c where c.user.idUser=:x order by c.dateCreation DESC" );
+        query.setParameter( "x", id );
+
+        return query.getResultList();
+    }
+
 }
