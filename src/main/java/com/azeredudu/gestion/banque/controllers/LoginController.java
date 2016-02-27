@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class LoginController {
-    @RequestMapping( "/connexion" )
+    @RequestMapping( "/login" )
     public ModelAndView getLoginForm( @RequestParam( required = false ) String authfailed, String denied ) {
         String message = "";
         if ( authfailed != null ) {
