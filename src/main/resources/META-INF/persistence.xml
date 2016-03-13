@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence:persistence version="2.1"
-	xmlns:persistence="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd ">
-	<persistence:persistence-unit name="My_Persistence"
-		transaction-type="RESOURCE_LOCAL">
-		<persistence:provider>org.hibernate.ejb.HibernatePersistence</persistence:provider>
-		<persistence:properties>
-			<persistence:property name="hibernate.hbm2ddl.auto"
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="My_Persistence" transaction-type="RESOURCE_LOCAL">
+	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+	<class>com.azeredudu.gestion.banque.entities.Compte</class>
+		<class>com.azeredudu.gestion.banque.entities.CompteEpargne</class>
+		<class>com.azeredudu.gestion.banque.entities.CompteCourant</class>
+		<class>com.azeredudu.gestion.banque.entities.Employee</class>
+		<class>com.azeredudu.gestion.banque.entities.Groupe</class>
+		<class>com.azeredudu.gestion.banque.entities.Operation</class>
+		<class>com.azeredudu.gestion.banque.entities.Retrait</class>
+		<class>com.azeredudu.gestion.banque.entities.Versement</class>
+		<class>com.azeredudu.gestion.banque.entities.Role</class>
+		<class>com.azeredudu.gestion.banque.entities.User</class>
+		<class>com.azeredudu.gestion.banque.entities.RoleEmployee</class>
+	
+		<properties>
+			<property name="hibernate.hbm2ddl.auto"
 				value="update" />
-			<persistence:property name="hibernate.show_sql"
+			<property name="hibernate.show_sql"
 				value="true" />
 
-			<persistence:property name="hibernate.dialect"
+			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.MySQLDialect" />
 
-		</persistence:properties>
-	</persistence:persistence-unit>
-
-</persistence:persistence>
+		</properties>
+	
+		
+	</persistence-unit>
+</persistence>

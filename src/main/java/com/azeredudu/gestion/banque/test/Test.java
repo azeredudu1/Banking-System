@@ -7,7 +7,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.azeredudu.gestion.banque.entities.CompteCourant;
 import com.azeredudu.gestion.banque.entities.Groupe;
 import com.azeredudu.gestion.banque.entities.Role;
-import com.azeredudu.gestion.banque.entities.User;
 import com.azeredudu.gestion.banque.services.BanqueService;
 
 public class Test {
@@ -20,12 +19,15 @@ public class Test {
         service.addRole( new Role( "ROLE_ADMIN" ) );
         service.addRole( new Role( "ROLE_USER" ) );
 
-        User user = service
-                .addUser( new User( "azere242", "azere242", "Azere", "Mabiala", "China", "azere@gmail.com" ) );
-        service.addUser( new User( "christophe", "christophe", "Christophe", "Mabiala", "Congo", "christophe@gmail.com" ) );
-        service.addUser( new User( "nyss242", "nyss242", "Nyss", "Mabiala", "Canada", "nyss@gmail.com" ) );
-        service.addUser( new User( "kenavizir", "kenavizir", "Dieuveille", "Sah", "China", "kenavizir@gmail.com" ) );
         /*
+         * User user = service .addUser( new User( "azere242", "azere242",
+         * "Azere", "Mabiala", "China", "azere@gmail.com" ) ); service.addUser(
+         * new User( "christophe", "christophe", "Christophe", "Mabiala",
+         * "Congo", "christophe@gmail.com" ) ); service.addUser( new User(
+         * "nyss242", "nyss242", "Nyss", "Mabiala", "Canada", "nyss@gmail.com" )
+         * ); service.addUser( new User( "kenavizir", "kenavizir", "Dieuveille",
+         * "Sah", "China", "kenavizir@gmail.com" ) );
+         * 
          * service.addCompte( new CompteCourant( "LKIR00MCNKEAAC", new Date(),
          * 25000, 5000.0 ), 1L ); service.addCompte( new CompteCourant(
          * "LKIR00MCNKEDDA", new Date(), 180000, 5000.0 ), 1L );

@@ -170,7 +170,8 @@ public class User implements Serializable {
         // TODO Auto-generated constructor stub
     }
 
-    public User( String userName, String userPassword, String firstName, String lastName, String address, String email ) {
+    public User( String userName, String userPassword, String firstName, String lastName, String address, String email,
+            Date dateCreation ) {
         super();
         this.userName = userName;
         this.userPassword = userPassword;
@@ -178,6 +179,7 @@ public class User implements Serializable {
         this.lastName = lastName;
         this.address = address;
         this.email = email;
+        this.dateCreation = dateCreation;
     }
 
     public Collection<Compte> getComptes() {
